@@ -2,7 +2,8 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "",
-    DB: "sse",
+    DB: "icansave",
+    PORT:3306,
     dialect: "mysql",
     pool: {
       max: 5,
