@@ -18,7 +18,6 @@ const db = require("./models/index");
 
 
 initialize()
-
 async function initialize() {
     const { HOST, PORT, USER, PASSWORD, DB } = dbconfig;
     const connection = await mysql.createConnection({ host: HOST, port: PORT, user: USER, password: PASSWORD });
@@ -26,12 +25,9 @@ async function initialize() {
     await  db.sequelize.sync();
 }
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to iCanSave application." });
-});
-
 require('./routes/UserRoutes')(app)
 require('./routes/AuthRoutes')(app)
+require('./routes/TransactionRoutes')(app)
 const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

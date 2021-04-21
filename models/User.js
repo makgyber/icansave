@@ -10,19 +10,20 @@ module.exports = (sequelize, Sequelize) => {
       address: {type: Sequelize.STRING},
       province: {type: Sequelize.STRING},
       city: {type: Sequelize.STRING},
-      barangyay: {type: Sequelize.STRING},
+      barangay: {type: Sequelize.STRING},
       zipcode: {type: Sequelize.STRING},
       civilstatus: {type: Sequelize.STRING},
       occupation: {type: Sequelize.STRING},
       companyname: {type: Sequelize.STRING},
       companyaddress: {type: Sequelize.STRING},
+      companycontact: {type: Sequelize.STRING},
       facebookprofile:  {type: Sequelize.STRING},
       savingobjective: {type: Sequelize.STRING},
       targetsaving: {type: Sequelize.STRING},
       savingperiod: {type: Sequelize.STRING},
+      depositplan: {type: Sequelize.STRING},
       periodicsavingamount: {type: Sequelize.STRING},
     });
-  
     return User;
   };
   

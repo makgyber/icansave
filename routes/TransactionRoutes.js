@@ -1,4 +1,4 @@
-const controller = require("../controllers/AuthController");
+const controller = require("../controllers/TransactionController");
 module.exports = function(app) {
     app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Headers","x-access-token, Origin,X-Requested-With, Content-Type, Accept");
@@ -9,6 +9,6 @@ module.exports = function(app) {
       next();
     });
 
-    app.post('/api/auth/register', controller.registrationRequest);
-    app.post('/api/auth/loginRequest', controller.loginRequest);
+    app.post('/api/trans/createtransaction', controller.createNewTransaction);
+    app.post('/api/trans/createNewTransaction', controller.createNewTransaction);
 }
