@@ -12,6 +12,6 @@ module.exports = function(app) {
 
     //app.get('')
 
-    app.get('/updates', sseExpress, controller.getAllUsers);
+    //app.get('/updates', sseExpress, controller.getAllUsers);
     
 }
