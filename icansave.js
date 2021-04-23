@@ -9,7 +9,7 @@ var corsOptions = {
   origin: ('Access-Control-Allow-Origin', '*')
 };
 app.use(cors(corsOptions));
-const mysql =require('mysql')
+
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
