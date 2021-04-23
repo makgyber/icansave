@@ -1,3 +1,26 @@
+const multer = require('multer') ;
+const fs =require("fs");
+const { uploadsPath } = require("../Enums");
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      fs.exists(uploadsPath, function(exists) {
+        if (exists) {
+         // next();
+        }else{
+          fs.mkdirSync(uploadsPath, {recursive: true})
+        }
+        return cb(null, uploadsPath);
+      })
+    },
+    filename: function (req, file, cb) {
+      if(file !=undefined){
+        cb(null,file.originalname)
+      }
+    }
+  });
+  //mkdirp(dir, err => cb(err, dir))
+  
+const upload = multer({storage: storage});
 const controller = require("../controllers/UserController");
 const sseExpress = require('sse-express');
 module.exports = function(app) {
@@ -12,6 +35,8 @@ module.exports = function(app) {
 
     //app.get('')
 
-    //app.get('/updates', sseExpress, controller.getAllUsers);
+    app.get('/api/getAllUsers', controller.getAllUsers);
+    app.post('/api/account/generateSavingsAccount', controller.generateSavingsAccount);
+    
     
 }

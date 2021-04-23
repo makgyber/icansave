@@ -25,17 +25,26 @@ db.sequelize = sequelize;
 
 db.user =require("./User")(sequelize, Sequelize);
 db.transactions=require("./Transactions")(sequelize, Sequelize);
+db.account=require("./Account")(sequelize, Sequelize);
 
 //Relationships
-db.user.belongsToMany(db.transactions, {
-  through: 'user_transactions',
-  foreignKey: 'userId',
-  otherKey: 'transactionId'
-});
+// db.user.belongsToMany(db.transactions, {
+//   through: 'user_transactions',
+//   foreignKey: 'userId',
+//   otherKey: 'transactionId'
+// });
 
-db.transactions.belongsToMany(db.user, {
-  through: 'user_transactions',
-  foreignKey: 'transactionId',
-  otherKey: ' userId'
-});
+// db.transactions.belongsToMany(db.user, {
+//   through: 'user_transactions',
+//   foreignKey: 'transactionId',
+//   otherKey: ' userId'
+// });
+db.transactions.belongsTo(db.user, {
+  through: "users",
+  foreignKey: "userId"
+})
+db.user.belongsTo(db.account,{
+  through: "users",
+  foreignKey: "userId"
+})
 module.exports = db;
