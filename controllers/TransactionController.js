@@ -94,7 +94,7 @@ exports.submitWithdrawalRequest=(req, res)=>{
         return res.status(500).send({message: 'User with '+reqBody.email+' not found' })
        } 
        Transactions.findAll({
-           where:{userId: user.id, type:'depo'}
+           where:{userId: user.id, type:'deposit'}
        }).then(trans=>{
            if(trans.length){
             Transactions.create({
