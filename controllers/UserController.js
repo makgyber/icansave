@@ -34,7 +34,4 @@ exports.generateSavingsAccount=(req, res)=>{
 }
 
 
-exports.submitDeposit=(req, res)=>{
-
-}
 
