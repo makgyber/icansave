@@ -1,5 +1,6 @@
+const { isNullOrEmpty } = require("../CustomFunctions/CustomFunctions");
 const db = require("../models/index");
-const { isNullOrEmpty } = require("d:/julius 2021/amvuni_api/amvuni_api/app/customfunctions/customfunctions");
+
 const User =db.user;
 const Transactions = db.transactions;
 
