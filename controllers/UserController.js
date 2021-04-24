@@ -24,7 +24,7 @@ exports.generateSavingsAccount=(req, res)=>{
     const data =req.body;
     const sequence = {id: "901"};
    User.findOne({
-       where:{id: data.email}
+       where:{email: data.email}
    }).then(user=>{
        if(!user){
         return res.status(404).send({ message: "User not found" })   
