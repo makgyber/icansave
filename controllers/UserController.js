@@ -15,7 +15,7 @@ exports.getAllUsers=( req, res)=>{
 }
 
 exports.generateSavingsAccount=(req, res)=>{
-    if(isNullOrEmpty(req.body.userid) || req.body.userid==undefined){
+    if(isNullOrEmpty(req.body.email) || req.body.email==undefined){
         return res.status(500).send({
             message: isNullOrEmpty(req.body.userid)?'Value is empty': 
             req.body.userid==undefined? 'Parameter missing completely':''
@@ -24,7 +24,7 @@ exports.generateSavingsAccount=(req, res)=>{
     const data =req.body;
     const sequence = {id: "901"};
    User.findOne({
-       where:{id: data.userid}
+       where:{id: data.email}
    }).then(user=>{
        if(!user){
         return res.status(404).send({ message: "User not found" })   
@@ -33,11 +33,10 @@ exports.generateSavingsAccount=(req, res)=>{
         return res.status(500).send({ message: "User Has account already" })   
        }
        Account.create({
-        userid: data.userid,
         accountname: (user.fullname).toUpperCase(),
         accountnumber: sequence.id+(Math.floor(1000000000+ Math.random()*9000000000)),
         status: 1,
-        createdBy: data.createdby
+        createdBy: 1
     }).then(account=>{
         user.accountId=account.id;
           if(user.save((err) => {

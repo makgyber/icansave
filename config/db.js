@@ -7,7 +7,7 @@ module.exports = {
     // HOST: "localhost",
     // USER: "root",
     // PASSWORD: "",
-    DB: "icansave",
+    DB: "icansave2",
     PORT:3306,
     dialect: "mysql",
     pool: {
