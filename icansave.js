@@ -14,7 +14,9 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 const db = require("./models/index");
-
+app.get('/', (req, res)=>{
+res.status(200).send('<center><h1>Welcome Jose (:<h1></center>')
+})
 db.sequelize.sync();
 require('./routes/UserRoutes')(app)
 require('./routes/AuthRoutes')(app)
