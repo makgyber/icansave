@@ -39,12 +39,19 @@ db.account=require("./Account")(sequelize, Sequelize);
 //   foreignKey: 'transactionId',
 //   otherKey: ' userId'
 // });
-db.transactions.belongsTo(db.user, {
-  through: "users",
-  foreignKey: "userId"
-})
+//db.transactions.belongsTo(db.user)
+
+
 db.user.belongsTo(db.account,{
+  through: "saving_accounts",
+  foreignKey: "accountId"
+})
+
+db.transactions.belongsTo(db.user,{
   through: "users",
   foreignKey: "userId"
 })
+
+
+//db.user.belongsTo(db.account)
 module.exports = db;

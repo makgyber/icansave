@@ -38,6 +38,7 @@ module.exports = function(app) {
     app.get('/api/getAllUsers', controller.getAllUsers);
     app.post('/api/account/generateSavingsAccount', controller.generateSavingsAccount);
     app.post('/api/user/deactivateOrActivateuser', controller.deactivateOrActivateuser);
+    app.post('/api/trans/userAccountInformation', controller.getAccountInformation)
    
     
     
