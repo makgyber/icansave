@@ -35,6 +35,7 @@ module.exports = function(app) {
     app.post('/api/trans/createtransaction', controller.createNewTransaction);
     app.post('/api/trans/createNewTransaction', controller.createNewTransaction);
     app.post('/api/trans/withdrawal', controller.submitWithdrawalRequest);
-    app.post("/api/deposits/submitDeposit", upload.single('depositSlip'), controller.submitDeposit);
+    app.post('/api/deposits/submitDeposit', upload.single('depositSlip'), controller.submitDeposit);
+    app.get('/api/trans/getAllTransactions', controller.getAllTransactions);
     
 }

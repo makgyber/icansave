@@ -31,8 +31,9 @@ exports.registrationRequest=(req, res)=>{
       depositplan: reqBody.depositplan,
       
     }).then(registereduser=>{
-        return res.status(200).send(registereduser)
+        return res.status(200).send({message: 'Registration Successfull', data: registereduser})
     }).catch(error=>{
+        console.log(error.message)
         return res.status(500).send({message: 'Registration Failed'})
     })
 }

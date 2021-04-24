@@ -124,3 +124,12 @@ exports.submitWithdrawalRequest=(req, res)=>{
        
     })
 }
+exports.getAllTransactions=(req, res)=>{
+    Transactions.findAll()
+    .then(transactions=>{
+        return res.status(200).send(transactions)
+    }).catch(error=>{
+        console.log(error.message)
+        return res.status(200).send(transactions)
+    })
+}
