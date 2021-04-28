@@ -47,7 +47,6 @@ exports.generateSavingsAccount=(req, res)=>{
           })){
             return res.status(200).send({ message: "Account Created Successfully" })  
           }
-         
     }).catch(error=>{
         console.log(error.message)
         return res.status(500).send({ message: error.message })   

@@ -1,5 +1,6 @@
 const db = require("../models/index");
 const User =db.user;
+const Account =db.account;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const config = require("../config/AuthConfig");
@@ -31,7 +32,27 @@ exports.registrationRequest=(req, res)=>{
       depositplan: reqBody.depositplan,
       
     }).then(registereduser=>{
-        return res.status(200).send({message: 'Registration Successfull', data: registereduser})
+        const sequence = {id: "901"};
+        Account.create({
+            accountname: (registereduser.fullname).toUpperCase(),
+            accountnumber: sequence.id+(Math.floor(1000000000+ Math.random()*9000000000)),
+            status: 1,
+            createdBy: 1
+        }).then(account=>{
+            registereduser.accountId=account.id;
+              if(registereduser.save((err) => {
+                if (err) {
+                  res.status(500).send({ message: err });
+                  return;
+                }
+              })){
+                return res.status(200).send({ message: "Account Created Successfully" })  
+              }
+        }).catch(error=>{
+            console.log(error.message)
+            return res.status(500).send({ message: 'Registration Failed' })   
+        })
+        //return res.status(200).send({message: 'Registration Successfull', data: registereduser})
     }).catch(error=>{
         console.log(error.message)
         return res.status(500).send({message: 'Registration Failed'})
