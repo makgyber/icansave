@@ -46,7 +46,7 @@ exports.registrationRequest=(req, res)=>{
                   return;
                 }
               })){
-                return res.status(200).send({ message: "Account Created Successfully" })  
+                return res.status(200).send({ message: "Account Created Successfully", data:registereduser })  
               }
         }).catch(error=>{
             console.log(error.message)
