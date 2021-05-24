@@ -4,9 +4,9 @@ module.exports = {
   //  USER: "user",
   //  PASSWORD: "pass",
   HOST: "localhost",
-  USER: "root",
-  PASSWORD: "",
-  DB: "icansave",
+  USER: "xvxvrhvmry",
+  PASSWORD: "ZH6yYBA4qk",
+  DB: "xvxvrhvmry",
   dialect: "mysql",
   pool: {
     max: 5,
