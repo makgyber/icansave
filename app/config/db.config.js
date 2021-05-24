@@ -3,7 +3,7 @@ module.exports = {
   // HOST: "xxxxxxxx",
   //  USER: "user",
   //  PASSWORD: "pass",
-  HOST: "localhost",
+  HOST: "128.199.119.113",
   USER: "xvxvrhvmry",
   PASSWORD: "ZH6yYBA4qk",
   DB: "xvxvrhvmry",
